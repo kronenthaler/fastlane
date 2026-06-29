@@ -334,7 +334,7 @@ module FastlaneCore
         ("--asc-provider #{provider_short_name}" unless use_api_key || provider_short_name.to_s.empty?),
         ("--provider-public-id #{provider_public_id}" unless use_api_key || provider_public_id.to_s.empty?),
         platform_option(platform),
-        file_upload_option(source),
+        "-f #{source.shellescape}",
         additional_upload_parameters,
         "-k 100000"
       ].compact.join(' ')
